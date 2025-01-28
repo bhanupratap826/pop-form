@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pop-up form</title>
+</head>
+
+
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-style:normal;
+}
+
+  button {
+  background: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+    background-color: #2c4575;
+}
+  
+  .overlay {
+    position:fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff80;
+    display: none;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .popup {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+   
+  }
+  
+  .popup h2 {
+    margin-bottom: 15px;
+  }
+  
+  .popup form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .popup input {
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .popup .close {
+    background-color: #dc3545;
+  }
+  
+  .popup .close:hover {
+    background-color: #a71d2a;
+  }
+  
+</style>
+
+<body>
+    <button id="openPopup">Open Form</button>
+    <div class="overlay" id="popupOverlay">
+    <div class="popup">
+       
+    <h2>FILL THE FORM</FORM></h2>
+    
+    <form>
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Your Email" required>
+    <input type="tel" placeholder="Your Phone Number" required>
+    <input type="dateofbirth" placeholder="date of birth" required>
+    <input type="state" placeholder="state" required>
+    <input type="city" placeholder="CITY" required>
+    <button type="submit">Submit</button>
+    <button class="close" id="closePopup">Close</button>
+    </form>
+    </div>
+
+
+<script>
+const openPopup = document.getElementById('openPopup');
+const closePopup = document.getElementById('closePopup');
+const popupOverlay = document.getElementById('popupOverlay');
+
+
+openPopup.addEventListener('click', () => {
+  popupOverlay.style.display = 'flex';
+});
+
+
+closePopup.addEventListener('click', () => {
+  popupOverlay.style.display = 'none';
+});
+
+
+popupOverlay.addEventListener('click', (event) => {
+  if (event.target === popupOverlay) {
+    popupOverlay.style.display = 'none';
+  }
+});
+</script>
+
+
+</body>
+</html>
